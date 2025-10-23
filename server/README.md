@@ -33,7 +33,6 @@ node ./cli.js
 Flags:
 -  `--port <number>`, `-p` : Port to run the http server on
 -  `--transport <string>`, `-t` : Transport (`http` | `stdio`)
--  `--toolsets <items>` : Comma-separated list of toolsets. By default, all toolsets are included.
 
 ## Installation Guide
 
@@ -119,6 +118,3 @@ The MCP server uses the following environment variables:
   - `PAYMENT_QUERIES_LIB_BASIC_AUTH_USER_NAME`
   - `PAYMENT_QUERIES_LIB_BASIC_AUTH_PASSWORD`
 
-## Available Toolsets
-
-- **API**
