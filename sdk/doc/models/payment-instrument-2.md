@@ -3,8 +3,6 @@
 
 An object that contains information about the payment type.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `PaymentInstrument2`
@@ -13,9 +11,8 @@ An object that contains information about the payment type.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `type` | [`Type5 \| undefined`](../../doc/models/type-5.md) | Optional | An object that contains information about the payment type. |
+| `type` | [`Type5Enum \| undefined`](../../doc/models/type-5-enum.md) | Optional | An object that contains information about the payment type. |
 | `card` | [`Card3 \| undefined`](../../doc/models/card-3.md) | Optional | An object that contains information about the card used. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -24,24 +21,12 @@ An object that contains information about the payment type.
   "type": "card/networkToken+googlepay",
   "card": {
     "number": {
-      "last4Digits": "last4Digits2",
-      "exampleAdditionalProperty": {
-        "key1": "val1",
-        "key2": "val2"
-      }
+      "last4Digits": "last4Digits2"
     },
     "brand": {
       "key1": "val1",
       "key2": "val2"
-    },
-    "exampleAdditionalProperty": {
-      "key1": "val1",
-      "key2": "val2"
     }
-  },
-  "exampleAdditionalProperty": {
-    "key1": "val1",
-    "key2": "val2"
   }
 }
 ```

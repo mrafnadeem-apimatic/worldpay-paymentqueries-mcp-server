@@ -1,8 +1,6 @@
 
 # Embedded 1
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `Embedded1`
@@ -12,7 +10,6 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `payments` | [`Payment1[] \| undefined`](../../doc/models/payment-1.md) | Optional | Array of payments. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -25,37 +22,17 @@
         "type": "card/networkToken",
         "card": {
           "number": {
-            "last4Digits": "last4Digits2",
-            "exampleAdditionalProperty": {
-              "key1": "val1",
-              "key2": "val2"
-            }
+            "last4Digits": "last4Digits2"
           },
           "brand": {
             "key1": "val1",
             "key2": "val2"
-          },
-          "exampleAdditionalProperty": {
-            "key1": "val1",
-            "key2": "val2"
           }
-        },
-        "exampleAdditionalProperty": {
-          "key1": "val1",
-          "key2": "val2"
         }
       },
       "value": {
         "amount": 18,
-        "currency": "currency2",
-        "exampleAdditionalProperty": {
-          "key1": "val1",
-          "key2": "val2"
-        }
-      },
-      "exampleAdditionalProperty": {
-        "key1": "val1",
-        "key2": "val2"
+        "currency": "currency2"
       }
     },
     {
@@ -64,44 +41,20 @@
         "type": "card/networkToken",
         "card": {
           "number": {
-            "last4Digits": "last4Digits2",
-            "exampleAdditionalProperty": {
-              "key1": "val1",
-              "key2": "val2"
-            }
+            "last4Digits": "last4Digits2"
           },
           "brand": {
             "key1": "val1",
             "key2": "val2"
-          },
-          "exampleAdditionalProperty": {
-            "key1": "val1",
-            "key2": "val2"
           }
-        },
-        "exampleAdditionalProperty": {
-          "key1": "val1",
-          "key2": "val2"
         }
       },
       "value": {
         "amount": 18,
-        "currency": "currency2",
-        "exampleAdditionalProperty": {
-          "key1": "val1",
-          "key2": "val2"
-        }
-      },
-      "exampleAdditionalProperty": {
-        "key1": "val1",
-        "key2": "val2"
+        "currency": "currency2"
       }
     }
-  ],
-  "exampleAdditionalProperty": {
-    "key1": "val1",
-    "key2": "val2"
-  }
+  ]
 }
 ```
 

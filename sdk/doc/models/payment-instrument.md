@@ -3,8 +3,6 @@
 
 The payment instrument supplied in the authorization request.
 
-*This model accepts additional fields of type unknown.*
-
 ## Structure
 
 `PaymentInstrument`
@@ -13,9 +11,8 @@ The payment instrument supplied in the authorization request.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `type` | [`Type2 \| undefined`](../../doc/models/type-2.md) | Optional | The type of payment instrument supplied in the authorization request. |
+| `type` | [`Type2Enum \| undefined`](../../doc/models/type-2-enum.md) | Optional | The type of payment instrument supplied in the authorization request. |
 | `card` | [`Card \| undefined`](../../doc/models/card.md) | Optional | An object that contains information about the card used. |
-| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -25,31 +22,15 @@ The payment instrument supplied in the authorization request.
   "card": {
     "number": {
       "cardBin": "cardBin8",
-      "last4Digits": "last4Digits2",
-      "exampleAdditionalProperty": {
-        "key1": "val1",
-        "key2": "val2"
-      }
+      "last4Digits": "last4Digits2"
     },
     "category": "commercial",
     "countryCode": "countryCode8",
     "expiryDate": {
       "month": 244,
-      "year": 20,
-      "exampleAdditionalProperty": {
-        "key1": "val1",
-        "key2": "val2"
-      }
+      "year": 20
     },
-    "issuerName": "issuerName6",
-    "exampleAdditionalProperty": {
-      "key1": "val1",
-      "key2": "val2"
-    }
-  },
-  "exampleAdditionalProperty": {
-    "key1": "val1",
-    "key2": "val2"
+    "issuerName": "issuerName6"
   }
 }
 ```

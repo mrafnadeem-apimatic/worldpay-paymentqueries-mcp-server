@@ -12,7 +12,6 @@ import { ApiError } from '../core.js';
 interface PqQuerybypaymentid404Response {
   errorName?: string;
   message?: string;
-  additionalProperties?: Record<string, unknown>;
 }
 
 export class PqQuerybypaymentid404ResponseError extends ApiError<

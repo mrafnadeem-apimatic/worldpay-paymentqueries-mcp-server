@@ -28,12 +28,12 @@ To run the MCP server using `node`, use the following command:
 ```bash
 cd server
 node ./cli.js
-```            
+```
 
 Flags:
--  --port <number>, -p : Port to run the http server on
--  --transport <string>, -t : Transport (http | stdio)
--  --toolsets <items> : Comma-separated list of toolsets. By default, all toolsets are included.
+-  `--port <number>`, `-p` : Port to run the http server on
+-  `--transport <string>`, `-t` : Transport (`http` | `stdio`)
+-  `--toolsets <items>` : Comma-separated list of toolsets. By default, all toolsets are included.
 
 ## Installation Guide
 
@@ -46,8 +46,8 @@ Before you begin, ensure the following requirements are met:
   node --version
   ```
 - **MCP-Compatible Host**: A tool that supports MCP servers (remote or local `stdio`):
-    - **VS Code** 1.101+            
-    - **Claude Desktop** 
+    - **VS Code** 1.101+
+    - **Claude Desktop**
     - **Cursor**
 
 ### Setup in Claude Desktop / Cursor
@@ -68,20 +68,18 @@ You need to fill in the parts that look `[LIKE-THIS]`.
     "payment-querieslib-mcp-server": {
       "command": "node",
       "args": [
-         "[YOUR-PATH-HERE]/server/server/cli.js"
+         "[YOUR-PATH-HERE]/PaymentQueries/server/cli.js",
         "--transport",
         "stdio"
       ],
-      "env": {
-        "PAYMENT_QUERIES_LIB_ENVIRONMENT": "[YOUR-ENVIRONMENT-VARIABLE-VALUE-HERE]",
-        "PAYMENT_QUERIES_LIB_TIMEOUT": "[YOUR-ENVIRONMENT-VARIABLE-VALUE-HERE]",
+    "env": {
         "PAYMENT_QUERIES_LIB_BASIC_AUTH_USER_NAME": "[YOUR-ENVIRONMENT-VARIABLE-VALUE-HERE]",
         "PAYMENT_QUERIES_LIB_BASIC_AUTH_PASSWORD": "[YOUR-ENVIRONMENT-VARIABLE-VALUE-HERE]"
       }
     }
   }
 }
-```    
+```
 
 ### Setup in VS Code
 
@@ -95,13 +93,11 @@ You can also configure the MCP server in VS Code. The setup is similar to Claude
       "type": "stdio",
       "command": "node",
       "args": [
-         "[YOUR-PATH-HERE]/server/server/cli.js"
+         "[YOUR-PATH-HERE]/PaymentQueries/server/cli.js",
         "--transport",
         "stdio"
       ],
-      "env": {
-        "PAYMENT_QUERIES_LIB_ENVIRONMENT": "[YOUR-ENVIRONMENT-VARIABLE-VALUE-HERE]",
-        "PAYMENT_QUERIES_LIB_TIMEOUT": "[YOUR-ENVIRONMENT-VARIABLE-VALUE-HERE]",
+    "env": {
         "PAYMENT_QUERIES_LIB_BASIC_AUTH_USER_NAME": "[YOUR-ENVIRONMENT-VARIABLE-VALUE-HERE]",
         "PAYMENT_QUERIES_LIB_BASIC_AUTH_PASSWORD": "[YOUR-ENVIRONMENT-VARIABLE-VALUE-HERE]"
       }
@@ -110,15 +106,18 @@ You can also configure the MCP server in VS Code. The setup is similar to Claude
 }
 ```
 
-          
+
 ## Environment Variables
 
 The MCP server uses the following environment variables:
 
 - `PAYMENT_QUERIES_LIB_ENVIRONMENT`: Optional environment variable that must be one of the allowed enum values (production, environment2). Default: `production`.
-- `PAYMENT_QUERIES_LIB_TIMEOUT`: Timeout for API calls. Optional string variable. Default: `0`.
-- `PAYMENT_QUERIES_LIB_BASIC_AUTH_USER_NAME`: Required string variable.
-- `PAYMENT_QUERIES_LIB_BASIC_AUTH_PASSWORD`: Required string variable.
+- `PAYMENT_QUERIES_LIB_TIMEOUT`: Timeout for API calls. Optional number variable. Default: `0`.
+
+- **Authentication Variables**
+ The Mcp server uses the following authentication environment variables
+  - `PAYMENT_QUERIES_LIB_BASIC_AUTH_USER_NAME`
+  - `PAYMENT_QUERIES_LIB_BASIC_AUTH_PASSWORD`
 
 ## Available Toolsets
 

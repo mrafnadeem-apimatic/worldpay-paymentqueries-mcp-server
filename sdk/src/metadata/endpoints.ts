@@ -7,17 +7,19 @@
 import { CoreClient } from '@apimatic/metadata-interfaces';
 import { Client } from '../client.js';
 import { createConfigurationFromEnvironment } from '../configuration.js';
-import { Api } from '../controllers/api.js';
+import { ApiController } from '../controllers/apiController.js';
 import { EndpointMetadata, RequestSchema } from './endpointMetadata.js';
-import * as apiSchemas from './endpointSchemas/apiSchemas.js';
+import * as apiControllerSchemas from './endpointSchemas/apiControllerSchemas.js';
 
 export const endpoints = {
   'API-queryByDateRange': new EndpointMetadata(
     'queryByDateRange',
     'API',
-    new RequestSchema(apiSchemas.queryByDateRangeMetadataRequestSchema),
+    new RequestSchema(
+      apiControllerSchemas.queryByDateRangeMetadataRequestSchema
+    ),
     (client, mapped) =>
-      new Api(client).queryByDateRange(
+      new ApiController(client).queryByDateRange(
         mapped.accept,
         mapped.startDate,
         mapped.endDate,
@@ -35,17 +37,24 @@ export const endpoints = {
   'API-retrieveByPaymentId': new EndpointMetadata(
     'retrieveByPaymentId',
     'API',
-    new RequestSchema(apiSchemas.retrieveByPaymentIdMetadataRequestSchema),
+    new RequestSchema(
+      apiControllerSchemas.retrieveByPaymentIdMetadataRequestSchema
+    ),
     (client, mapped) =>
-      new Api(client).retrieveByPaymentId(mapped.accept, mapped.paymentId),
+      new ApiController(client).retrieveByPaymentId(
+        mapped.accept,
+        mapped.paymentId
+      ),
     'Retrieve a single payment by payment ID.\\n\\nThe API returns detailed data for payments processed after 25 June 2024. For payments processed before then use our [query for historical payments](/products/payment-queries/@v1/query-archive.md).'
   ),
   'API-queryArchivedPayments': new EndpointMetadata(
     'queryArchivedPayments',
     'API',
-    new RequestSchema(apiSchemas.queryArchivedPaymentsMetadataRequestSchema),
+    new RequestSchema(
+      apiControllerSchemas.queryArchivedPaymentsMetadataRequestSchema
+    ),
     (client, mapped) =>
-      new Api(client).queryArchivedPayments(
+      new ApiController(client).queryArchivedPayments(
         mapped.accept,
         mapped.transactionReference,
         mapped.entityReference
