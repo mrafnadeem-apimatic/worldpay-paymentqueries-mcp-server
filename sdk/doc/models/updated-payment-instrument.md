@@ -3,6 +3,8 @@
 
 The payment instrument supplied in the authorization request.
 
+*This model accepts additional fields of type unknown.*
+
 ## Structure
 
 `UpdatedPaymentInstrument`
@@ -11,9 +13,10 @@ The payment instrument supplied in the authorization request.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `type` | [`Type3Enum \| undefined`](../../doc/models/type-3-enum.md) | Optional | The type of payment instrument supplied in the authorization request. |
+| `type` | [`Type3 \| undefined`](../../doc/models/type-3.md) | Optional | The type of payment instrument supplied in the authorization request. |
 | `card` | [`Card1 \| undefined`](../../doc/models/card-1.md) | Optional | An object that contains information about the card used. |
-| `accountUpdaterMessage` | [`AccountUpdaterMessageEnum \| undefined`](../../doc/models/account-updater-message-enum.md) | Optional | Details on the type of payment instrument update. |
+| `accountUpdaterMessage` | [`AccountUpdaterMessage \| undefined`](../../doc/models/account-updater-message.md) | Optional | Details on the type of payment instrument update. |
+| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -23,16 +26,32 @@ The payment instrument supplied in the authorization request.
   "card": {
     "number": {
       "cardBin": "cardBin8",
-      "last4Digits": "last4Digits2"
+      "last4Digits": "last4Digits2",
+      "exampleAdditionalProperty": {
+        "key1": "val1",
+        "key2": "val2"
+      }
     },
     "expiryDate": {
       "month": 244,
-      "year": 20
+      "year": 20,
+      "exampleAdditionalProperty": {
+        "key1": "val1",
+        "key2": "val2"
+      }
     },
     "fundingType": "chargeCard",
-    "brand": "brand0"
+    "brand": "brand0",
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
+    }
   },
-  "accountUpdaterMessage": "The merchant is not registered in the update program"
+  "accountUpdaterMessage": "The merchant is not registered in the update program",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

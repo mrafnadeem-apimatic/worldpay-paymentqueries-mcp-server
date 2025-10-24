@@ -3,6 +3,8 @@
 
 All Failed events return error object with name and message.
 
+*This model accepts additional fields of type unknown.*
+
 ## Structure
 
 `Error`
@@ -11,15 +13,20 @@ All Failed events return error object with name and message.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `name` | [`NameEnum \| undefined`](../../doc/models/name-enum.md) | Optional | Example values are, |
-| `message` | [`MessageEnum \| undefined`](../../doc/models/message-enum.md) | Optional | Example values are, |
+| `name` | [`Name \| undefined`](../../doc/models/name.md) | Optional | Example values are, |
+| `message` | [`Message \| undefined`](../../doc/models/message.md) | Optional | Example values are, |
+| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
 ```json
 {
   "name": "currencyIsNotSupported",
-  "message": "Currency not supported"
+  "message": "Currency not supported",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

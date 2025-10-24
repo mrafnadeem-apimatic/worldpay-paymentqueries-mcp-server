@@ -1,12 +1,12 @@
 # API
 
 ```ts
-const apiController = new ApiController(client);
+const api = new Api(client);
 ```
 
 ## Class Name
 
-`ApiController`
+`Api`
 
 ## Methods
 
@@ -25,7 +25,7 @@ The API returns data for payments processed after 25 June 2024. For payments pro
 
 ```ts
 async queryByDateRange(
-  accept: AcceptEnum,
+  accept: Accept,
   startDate: string,
   endDate: string,
   pageSize?: number,
@@ -44,7 +44,7 @@ async queryByDateRange(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `accept` | [`AcceptEnum`](../../doc/models/accept-enum.md) | Header, Required | - |
+| `accept` | [`Accept`](../../doc/models/accept.md) | Header, Required | - |
 | `startDate` | `string` | Query, Required | An ISO 8601 date-time supplied as a string. Filters for payments that occurred after the specified date-time. Must be supplied alongside endDate. |
 | `endDate` | `string` | Query, Required | An ISO 8601 date-time supplied as a string. Filters for payments that occurred below the specified date-time. Must be supplied alongside startDate. |
 | `pageSize` | [`number \| undefined`](../../doc/models/number.md) | Query, Optional | The maximum number of payments to be returned in the response (max 300). |
@@ -64,7 +64,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ## Example Usage
 
 ```ts
-const accept = AcceptEnum.EnumApplicationvndworldpaypaymentqueriesv1haljson;
+const accept = Accept.EnumApplicationvndworldpaypaymentqueriesv1Haljson;
 
 const startDate = '04/28/2024 21:30:20';
 
@@ -87,7 +87,7 @@ const receivedEvents = 'authorizationRequested, authorizationSucceeded';
 const transactionReference = 'Memory265-13/08/1876';
 
 try {
-  const { result, ...httpResponse } = await apiController.queryByDateRange(
+  const { result, ...httpResponse } = await api.queryByDateRange(
     accept,
     startDate,
     endDate,
@@ -151,7 +151,7 @@ const accept = 'application/vnd.worldpay.payment-queries-v1.hal+json';
 const paymentId = 'payv0A4Hx2eY1-5P2_CpV7qy0';
 
 try {
-  const { result, ...httpResponse } = await apiController.retrieveByPaymentId(
+  const { result, ...httpResponse } = await api.retrieveByPaymentId(
     accept,
     paymentId
   );
@@ -293,7 +293,7 @@ const transactionReference = '89197aeb-c94a-456e-8014-1272fbcb64eb';
 const entityReference = 'default';
 
 try {
-  const { result, ...httpResponse } = await apiController.queryArchivedPayments(
+  const { result, ...httpResponse } = await api.queryArchivedPayments(
     accept,
     transactionReference,
     entityReference

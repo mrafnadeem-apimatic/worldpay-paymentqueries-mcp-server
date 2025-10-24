@@ -14,6 +14,7 @@ interface PqQueryhistoricalpayments400Response {
   errorName: string;
   /** A description of the error */
   message: string;
+  additionalProperties?: Record<string, unknown>;
 }
 
 export class PqQueryhistoricalpayments400ResponseError extends ApiError<

@@ -14,6 +14,7 @@ interface PqQuerybydaterange400Response {
   errorName: string;
   /** A description of the error. */
   message: string;
+  additionalProperties?: Record<string, unknown>;
 }
 
 export class PqQuerybydaterange400ResponseError extends ApiError<

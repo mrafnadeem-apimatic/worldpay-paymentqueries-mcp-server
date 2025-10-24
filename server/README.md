@@ -67,7 +67,7 @@ You need to fill in the parts that look `[LIKE-THIS]`.
     "payment-querieslib-mcp-server": {
       "command": "node",
       "args": [
-         "[YOUR-PATH-HERE]/PaymentQueries/server/cli.js",
+         "[YOUR-PATH-HERE]/worldpay-paymentqueries-mcpserver/server/cli.js",
         "--transport",
         "stdio"
       ],
@@ -92,7 +92,7 @@ You can also configure the MCP server in VS Code. The setup is similar to Claude
       "type": "stdio",
       "command": "node",
       "args": [
-         "[YOUR-PATH-HERE]/PaymentQueries/server/cli.js",
+         "[YOUR-PATH-HERE]/worldpay-paymentqueries-mcp-server/server/cli.js",
         "--transport",
         "stdio"
       ],
@@ -110,11 +110,10 @@ You can also configure the MCP server in VS Code. The setup is similar to Claude
 
 The MCP server uses the following environment variables:
 
-- `PAYMENT_QUERIES_LIB_ENVIRONMENT`: Optional environment variable that must be one of the allowed enum values (production, environment2). Default: `production`.
-- `PAYMENT_QUERIES_LIB_TIMEOUT`: Timeout for API calls. Optional number variable. Default: `0`.
+- `PAYMENT_QUERIES_LIB_ENVIRONMENT`: Optional environment variable that must be one of the allowed enum values (Test, Live). Default: `Test`.
+- `PAYMENT_QUERIES_LIB_TIMEOUT`: Timeout for API calls. Optional number variable. Default: `30000`.
 
 - **Authentication Variables**
  The Mcp server uses the following authentication environment variables
   - `PAYMENT_QUERIES_LIB_BASIC_AUTH_USER_NAME`
   - `PAYMENT_QUERIES_LIB_BASIC_AUTH_PASSWORD`
-
